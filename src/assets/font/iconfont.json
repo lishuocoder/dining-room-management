@@ -1,0 +1,100 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "14680888",
+      "name": "icon-personal",
+      "font_class": "personal",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "14680971",
+      "name": "icon-rise",
+      "font_class": "rise",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "14681004",
+      "name": "icon-setup",
+      "font_class": "setup",
+      "unicode": "e61b",
+      "unicode_decimal": 58907
+    },
+    {
+      "icon_id": "14681025",
+      "name": "icon-approval",
+      "font_class": "approval",
+      "unicode": "e61c",
+      "unicode_decimal": 58908
+    },
+    {
+      "icon_id": "14681066",
+      "name": "icon-time2",
+      "font_class": "time2",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
+    },
+    {
+      "icon_id": "14681100",
+      "name": "icon-lock",
+      "font_class": "lock",
+      "unicode": "e621",
+      "unicode_decimal": 58913
+    },
+    {
+      "icon_id": "14681266",
+      "name": "icon-news",
+      "font_class": "news",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "14681303",
+      "name": "icon-sale",
+      "font_class": "sale",
+      "unicode": "e62d",
+      "unicode_decimal": 58925
+    },
+    {
+      "icon_id": "14681555",
+      "name": "icon-group",
+      "font_class": "group",
+      "unicode": "e636",
+      "unicode_decimal": 58934
+    },
+    {
+      "icon_id": "14681728",
+      "name": "icon-dropdown",
+      "font_class": "dropdown",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "14682654",
+      "name": "icon-name",
+      "font_class": "name",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
+    },
+    {
+      "icon_id": "14682806",
+      "name": "icon-putitaway",
+      "font_class": "putitaway",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "14686103",
+      "name": "icon-yselect",
+      "font_class": "dianji",
+      "unicode": "e644",
+      "unicode_decimal": 58948
+    }
+  ]
+}

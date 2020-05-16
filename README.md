@@ -15,10 +15,5 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
+### 手机点餐后台管理系统vue、 element-ui
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
