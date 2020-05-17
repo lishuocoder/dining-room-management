@@ -65,21 +65,21 @@ export default {
         { 
           date:"2020-02-23",
           position: "服务员",
-          name: "王小虎",
+          name: "李小虎",
           sex: "男",
           mobile:"18934564234"
         },
         { 
           date:"2020-03-21",
           position: "经理",
-          name: "王小虎",
+          name: "成小虎",
           sex:"男",
           mobile:"18934564234"
         },
         { 
           date:"2020-03-21",
           position: "服务员",
-          name: "王小虎",
+          name: "陈小虎",
           sex: "男",
           mobile:"18934564234"
         }

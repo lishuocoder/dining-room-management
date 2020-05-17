@@ -5,7 +5,8 @@ import Home from '../components/Home.vue';
 import Welcome from '../components/Welcome.vue';
 import Users from '../components/user/Users.vue';
 import FoodList from '../components/food/FoodList.vue';
-import Password from '../components/user/Password.vue'
+import Password from '../components/user/Password.vue';
+import OrderList from '../components/order/OrderList.vue';
 
 Vue.use(VueRouter);
 
@@ -28,7 +29,9 @@ const routes: RouteConfig[] = [
       {path: '/welcome', component: Welcome},
       {path: '/users', component:Users},
       {path: '/foodlist',component:FoodList},
-      {path: '/password',component:Password}
+      {path: '/password',component:Password},
+      {path: '/orderlist',component:OrderList},
+
     ]
   }
 ];

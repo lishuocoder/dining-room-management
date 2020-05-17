@@ -1,5 +1,14 @@
 <template>
   <div>
+    <!-- 面包屑 -->
+    <el-breadcrumb separator="/">
+      <el-breadcrumb-item :to="{ path: '/home' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item>
+        <a>人员管理</a>
+      </el-breadcrumb-item>
+      <el-breadcrumb-item>密码管理</el-breadcrumb-item>
+    </el-breadcrumb>
+
     <el-row>
       <el-col :span="6">
         <el-input v-model="searchData" placeholder="输入姓名搜索"></el-input>
@@ -10,7 +19,8 @@
     </el-row>
     <el-table :data="datalist">
       <el-table-column label="姓名" prop="name"></el-table-column>
-      <el-table-column label="年龄" prop="age"></el-table-column>
+      <el-table-column label="账号" prop="email"></el-table-column>
+      <el-table-column label="密码" prop="password"></el-table-column>
     </el-table>
     <el-pagination
       @size-change="handleSizeChange"
@@ -26,23 +36,23 @@
 <script>
 var listJson = {
   list: [
-    { name: "aa", age: 12 },
-    { name: "bb", age: 13 },
-    { name: "cc", age: 14 },
-    { name: "ad", age: 15 },
-    { name: "eaae", age: 16 },
-    { name: "faaf", age: 16 },
-    { name: "hah", age: 17 },
-    { name: "ii", age: 18 },
-    { name: "rar", age: 19 },
-    { name: "dd", age: 10 }
+    { name: "张三", email: "3134234@163.com", password: 12343 },
+    { name: "王小虎", email: "3134234@163.com", password: 13343 },
+    { name: "李小虎", email: "3134234@163.com", password: 14343 },
+    { name: "李四", email: "3134234@163.com", password: 15343 },
+    { name: "赵高", email: "3134234@163.com", password: 16343 },
+    { name: "王五", email: "3134234@163.com", password: 16343 },
+    { name: "小明", email: "3134234@163.com", password: 17343 },
+    { name: "小红", email: "3134234@163.com", password: 18343 },
+    { name: "成吉思汗", email: "3134234@163.com", password: 19343 },
+    { name: "橘子", email: "3134234@163.com", password: 10343 }
   ]
 };
 export default {
   data() {
     return {
       datalist: [],
-      data: [],
+      foodsList: [],
       limit: 5,
       total: null,
       page: 1,
@@ -75,6 +85,7 @@ export default {
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`);
       this.limit = val;
+      this.page = 1;
       this.getList();
     },
     // 当当前页改变

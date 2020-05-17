@@ -61,10 +61,34 @@
                 <span>菜品列表</span>
               </template>
             </el-menu-item>
-            <el-menu-item index="2-2">
+          </el-submenu>
+
+           <el-submenu index="3">
+            <template slot="title">
+              <!-- 图标 -->
+              <i class="iconfont icon-sale"></i>
+              <span>订单管理</span>
+            </template>
+            <!-- 二级菜单 -->
+            <el-menu-item index="orderlist">
               <template slot="title">
                 <i class="el-icon-menu"></i>
-                <span>管理菜品</span>
+                <span>订单列表</span>
+              </template>
+            </el-menu-item>
+          </el-submenu>
+
+           <el-submenu index="4">
+            <template slot="title">
+              <!-- 图标 -->
+              <i class="iconfont icon-rise"></i>
+              <span>数据统计</span>
+            </template>
+            <!-- 二级菜单 -->
+            <el-menu-item index="foodlist">
+              <template slot="title">
+                <i class="el-icon-menu"></i>
+                <span>数据报表</span>
               </template>
             </el-menu-item>
           </el-submenu>
@@ -93,6 +117,7 @@ export default {
       this.iscollapse = !this.iscollapse;
     },
     logout() {
+       this.$message("退出登录");
       window.sessionStorage.clear();
       this.$router.push("/login");
     }
