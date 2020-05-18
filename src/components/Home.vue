@@ -85,7 +85,7 @@
               <span>数据统计</span>
             </template>
             <!-- 二级菜单 -->
-            <el-menu-item index="foodlist">
+            <el-menu-item index="statistics">
               <template slot="title">
                 <i class="el-icon-menu"></i>
                 <span>数据报表</span>

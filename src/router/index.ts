@@ -7,6 +7,7 @@ import Users from '../components/user/Users.vue';
 import FoodList from '../components/food/FoodList.vue';
 import Password from '../components/user/Password.vue';
 import OrderList from '../components/order/OrderList.vue';
+import Statistics from '../components/statistics/Statistics.vue'
 
 Vue.use(VueRouter);
 
@@ -31,6 +32,7 @@ const routes: RouteConfig[] = [
       {path: '/foodlist',component:FoodList},
       {path: '/password',component:Password},
       {path: '/orderlist',component:OrderList},
+      {path: '/statistics',component:Statistics}
 
     ]
   }

@@ -45,6 +45,7 @@
           <template v-slot="scope">{{typeList[scope.row.type_id-1].name }}</template>
         </el-table-column>
         <el-table-column label="简介" prop="explain"></el-table-column>
+        <el-table-column label="销量" prop="sales_volume"></el-table-column>
         <el-table-column label="上下架状态" prop="status">
           <template v-slot="scope">
             <el-switch
@@ -86,13 +87,56 @@
       <!-- 添加菜品的对话框 -->
       <el-dialog title="添加菜品" :visible.sync="addFoodShow" width="50%">
         <!-- 内容主体区域 -->
-        <span>添加表格还没做</span>
+        <el-form ref="addFoodForm" :model="addFoodForm" label-width="80px">
+          <el-form-item label="菜品名称">
+            <el-input v-model="addFoodForm.name" placeholder="请输入菜名"></el-input>
+          </el-form-item>
+          <el-form-item label="价 格 (￥)">
+            <el-input v-model="addFoodForm.price" placeholder="请输入价格"></el-input>
+          </el-form-item>
+          <el-form-item label="简 介">
+            <el-input v-model="addFoodForm.explain" placeholder="请输入菜品简介"></el-input>
+          </el-form-item>
+          <el-form-item label="分 类">
+            <el-select v-model="addFoodForm.type" placeholder="请选择分类">
+              <el-option
+                v-for="item in typeList"
+                :key="item.id"
+                :label="item.name"
+                :value="item.id"
+              ></el-option>
+            </el-select>
+          </el-form-item>
+
+          <el-form-item label="上下架">
+            <el-switch
+              class="switch"
+              v-model="addFoodForm.status"
+              :width="55"
+              active-value="1"
+              inactive-value="0"
+              active-text="上架"
+              inactive-text="下架"
+              active-color="#13ce66"
+              inactive-color="#ff4949"
+            ></el-switch>
+          </el-form-item>
+
+          <el-form-item label="排序">
+            <el-input v-model="addFoodForm.sort" placeholder="(序号越大越靠后)"></el-input>
+          </el-form-item>
+
+          <el-form-item label="详细介绍">
+            <el-input type="textarea" v-model="addFoodForm.content" placeholder="请输入菜品详细介绍"></el-input>
+          </el-form-item>
+        </el-form>
         <!-- 底部区域 -->
         <span slot="footer" class="dialog-footer">
           <el-button @click="addFoodShow = false">取 消</el-button>
           <el-button type="primary" @click="addFoodShow = false">添 加</el-button>
         </span>
       </el-dialog>
+      <!-- 添加菜品的对话框结束 -->
 
       <!-- 编辑菜品对话框 -->
       <el-dialog title="修改菜品信息" :visible.sync="editFoodShow" width="50%">
@@ -141,6 +185,7 @@
           </el-form-item>
         </el-form>
       </el-dialog>
+      <!-- 编辑菜品结束 -->
     </el-card>
   </div>
 </template>
@@ -159,7 +204,18 @@ export default {
       addFoodShow: false, //控制添加对话框的显示
       editFoodShow: false, //控制修改对话框的显示
       editFoodForm: {}, //要编辑菜品的详细信息
-      value:''
+      value: "", //修改菜品分类默认选项
+      // 添加菜品信息表单
+      addFoodForm: {
+        name: "",
+        price: "",
+        explain: "",
+        type: "",
+        status: "1",
+        sort: "",
+        content: "",
+        image: ""
+      }
     };
   },
   created() {
@@ -194,11 +250,11 @@ export default {
       );
       this.total = list.length;
     },
-    //编辑按钮
+    //点击编辑按钮
     foodEdit(row) {
       this.editFoodForm = row;
       console.log(this.editFoodForm);
-      this.value=row.type_id;
+      this.value = row.type_id;
     },
     // 监听pagesize改变
     handleSizeChange(val) {

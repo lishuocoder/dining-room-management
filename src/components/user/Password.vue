@@ -18,9 +18,9 @@
       </el-col>
     </el-row>
     <el-table :data="datalist">
-      <el-table-column label="姓名" prop="name"></el-table-column>
-      <el-table-column label="账号" prop="email"></el-table-column>
-      <el-table-column label="密码" prop="password"></el-table-column>
+      <el-table-column label="姓名" prop="name" width="190"></el-table-column>
+      <el-table-column label="账号" prop="email" width="190"></el-table-column>
+      <el-table-column label="密码" prop="password" width="190"></el-table-column>
     </el-table>
     <el-pagination
       @size-change="handleSizeChange"
