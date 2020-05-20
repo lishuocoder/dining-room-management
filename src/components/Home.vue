@@ -63,7 +63,7 @@
             </el-menu-item>
           </el-submenu>
 
-           <el-submenu index="3">
+          <el-submenu index="3">
             <template slot="title">
               <!-- 图标 -->
               <i class="iconfont icon-sale"></i>
@@ -78,7 +78,7 @@
             </el-menu-item>
           </el-submenu>
 
-           <el-submenu index="4">
+          <el-submenu index="4">
             <template slot="title">
               <!-- 图标 -->
               <i class="iconfont icon-rise"></i>
@@ -106,8 +106,7 @@
 export default {
   data() {
     return {
-      iscollapse: false,
-     
+      iscollapse: false
     };
   },
 
@@ -117,9 +116,9 @@ export default {
       this.iscollapse = !this.iscollapse;
     },
     logout() {
-       this.$message("退出登录");
+      this.$message("退出登录");
       window.sessionStorage.clear();
-      this.$router.push("/login");
+      this.$router.replace("/login");
     }
   }
 };

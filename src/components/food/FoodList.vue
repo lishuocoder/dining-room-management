@@ -232,7 +232,7 @@ export default {
     //获取菜品信息
     async getFoodList() {
       const { data: res } = await this.$http.get("?m=admin&c=food&a=index", {
-        params: { token: "5ec112e2e7874" }
+        params: { token: sessionStorage.getItem("token") }
       });
       this.foodsList = res.data;
       this.getList();

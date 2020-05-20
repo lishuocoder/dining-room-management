@@ -46,28 +46,39 @@ export default {
       // console.log("点击了登录按钮");
       this.$refs.loginFromRef.validate(async valid => {
         // 表单正确valid为true
-        // if (!valid) return;
-        // const result = await this.$http.post("?m=admin&c=login&a=login", this.frm);
-        // console.log(result);
-
-        // this.$http
-        //   .post("?m=admin&c=login&a=login", {email:"123",password:"123456"})
-        //   .then(function(res) {
-        //     console.log(res.data);
-        //
-        //   })
-        //   .catch(function(err) {
-        //     console.log(err);
-        //   });
-
-        this.$router.push("/home");
-        this.$message.success("登录成功");
-        window.sessionStorage.setItem("token", "5ebe9adec1ccc");
+        if (!valid) return;
+        const result = await this.$http.get("?m=admin&c=login&a=login", {
+          params: this.form
+        });
+        console.log(result.data);
+        if (result.data.error !== 0)
+          return this.$message.error(result.data.msg);
+        this.$router.push({path:'/home'} ,onComplete => { }, onAbort => { })
+        this.$message.success(result.data.msg);
+        sessionStorage.setItem("token", result.data.data.token);
       });
+
+      // const that = this;
+      // this.$http
+      //   .get("?m=admin&c=login&a=login", { params: this.form })
+      //   .then(response => {
+      //     if (response.data.error !== 0)
+      //       return this.$message.error(response.data.msg);
+      //     that.$router.push(
+      //       { path: "/home" },
+      //       onComplete => {},
+      //       onAbort => {}
+      //     );
+      //     this.$message.success(response.data.msg);
+      //     sessionStorage.setItem("token", response.data.data.token);
+      //     console.log(response.data);
+      //   })
+      //   .catch(error => {
+      //     console.log(error); //异常
+      //   });
     },
     resetFrom() {
-      如歌如;
-      //  console.log(重置按钮)
+      //  console.log("重置按钮")
       this.$refs.loginFromRef.resetFields();
     }
   }

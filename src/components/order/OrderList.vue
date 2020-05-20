@@ -120,7 +120,7 @@ export default {
     //获取桌位信息状态
     async getOrder() {
       const { data: res } = await this.$http.get("?m=admin&c=index&a=desks", {
-        params: { token: "5ec112e2e7874" }
+        params: { token: sessionStorage.getItem("token") }
       });
       // console.log(res.data);
       this.deskList = res.data;
@@ -168,7 +168,7 @@ export default {
       console.log("点击了结算");
       this.$http
         .post("?m=admin&c=index&a=changeOrderStatus", {
-          token: "5ec112e2e7874",
+          token: sessionStorage.getItem("token") ,
           status: 1,
           order_id: this.orderId
         })
