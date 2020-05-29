@@ -15,7 +15,7 @@
         <!-- 控制侧边栏的折叠与展开 -->
         <div class="toggle-button" @click="toggleButton">|||</div>
         <el-menu
-          :default-active="this.onRoutes()"
+          :default-active="$route.path"
           class="el-menu-vertical-demo"
           background-color="#333744"
           text-color="#fff"
