@@ -12,9 +12,10 @@
     <el-container>
       <!-- 侧边栏 -->
       <el-aside :width="iscollapse ? '64px' : '200px'">
+        <!-- 控制侧边栏的折叠与展开 -->
         <div class="toggle-button" @click="toggleButton">|||</div>
         <el-menu
-          :default-active="$route.path"
+          :default-active="this.onRoutes()"
           class="el-menu-vertical-demo"
           background-color="#333744"
           text-color="#fff"
@@ -117,7 +118,7 @@ export default {
     },
     logout() {
       this.$message("退出登录");
-      window.sessionStorage.clear();
+      window.sessionStorage.clear("token"); // 清除token值
       this.$router.replace("/login");
     }
   }

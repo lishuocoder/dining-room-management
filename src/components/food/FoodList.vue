@@ -201,10 +201,10 @@ export default {
       total: null,
       PageSize: 5,
       typeList: [],
-      addFoodShow: false, //控制添加对话框的显示
-      editFoodShow: false, //控制修改对话框的显示
-      editFoodForm: {}, //要编辑菜品的详细信息
-      value: "", //修改菜品分类默认选项
+      addFoodShow: false, // 控制添加对话框的显示
+      editFoodShow: false, // 控制修改对话框的显示
+      editFoodForm: {}, // 要编辑菜品的详细信息
+      value: "", // 修改菜品分类默认选项
       // 添加菜品信息表单
       addFoodForm: {
         name: "",
@@ -223,13 +223,13 @@ export default {
     this.getTypeList();
   },
   methods: {
-    //获取菜品分类
+    // 获取菜品分类
     async getTypeList() {
       const { data: res } = await this.$http.get("?c=type&a=index");
-      this.typeList = res.data; //存入所有分类
+      this.typeList = res.data; // 存入所有分类
       // console.log(this.typeList);
     },
-    //获取菜品信息
+    // 获取菜品信息
     async getFoodList() {
       const { data: res } = await this.$http.get("?m=admin&c=food&a=index", {
         params: { token: sessionStorage.getItem("token") }
@@ -238,7 +238,7 @@ export default {
       this.getList();
       // console.log(res)
     },
-    //搜索过滤
+    // 搜索过滤
     getList() {
       let list = this.foodsList.filter((item, index) =>
         item.name.includes(this.foodsSearch)
@@ -250,7 +250,7 @@ export default {
       );
       this.total = list.length;
     },
-    //点击编辑按钮
+    // 点击编辑按钮
     foodEdit(row) {
       this.editFoodForm = row;
       console.log(this.editFoodForm);
